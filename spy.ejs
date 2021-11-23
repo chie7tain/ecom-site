@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 50px;
+        font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+      }
+
+      a {
+        color: #00b7ff;
+      }
+      .spy-card-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-gap: 20px;
+        border: #00b7ff solid 1px;
+      }
+      .spy-card {
+        border: 1px solid gold;
+      }
+      .spy-image{
+        max-width: 100%;
+        height: auto;
+      }
+      .spy-details{
+        font-size: 1.2em;
+      }
+    </style>
+  </head>
+  <body>
+    hello world |
+    <div class="spy-card-container">
+      <% if(spies) { %> <% spies.forEach(spy => { %>
+      <div class="spy-card">
+        <div class="spy-image-container">
+          <img
+            class="spy-image"
+            src="<%=spy.image%>" alt="image of <%=spy.name%> "/>
+        </div>
+        <div class="spy-details-container">
+          <h2 class="spy-name spy-details"><%= spy.name%></h2>
+          <h3 class="spy-age spy-details"><%= spy.age %></h3>
+          <p class="spy-gender spy-details"><%= spy.gender %></p>
+          <p class="spy-email spy-details"><%= spy.email %></p>
+          <p class="spy-role spy-details"><%= spy.role %></p>
+          <p class="spy-address spy-details"><%= spy.address %></p>
+        </div>
+      </div>
+      <% }) %> <% }else{ %>
+      <p>No spies found<%=title  %> </p>
+      <%} %>
+    </div>
+  </body>
+</html>
